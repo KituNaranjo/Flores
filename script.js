@@ -21,4 +21,25 @@ window.addEventListener('click', (e) => {
   }
 });
 
+const envelopeButton = document.getElementById('open-button');
 const audio = document.getElementById('miCancion');
+
+  envelopeButton.addEventListener('click', () => {
+    modal.style.display = 'flex';  // abre la carta
+    audio.play();                  // reproduce la canción
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';  // cierra la carta
+    audio.pause();                  // pausa la canción
+    audio.currentTime = 0;          // reinicia la canción
+  });
+
+  // Opcional: cerrar modal al dar click fuera del contenido
+  window.addEventListener('click', (e) => {
+    if(e.target === modal){
+      modal.style.display = 'none';
+      audio.pause();
+      audio.currentTime = 0;
+    }
+  });
