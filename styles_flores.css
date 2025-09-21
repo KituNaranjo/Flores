@@ -711,3 +711,42 @@ body {
   0% { transform: scale(0.5); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
 }
+
+@media (max-width: 480px) {
+  .envelope {
+    width: 220px;
+    height: 130px;
+  }
+
+  .envelope-flap {
+    border-left: 110px solid transparent;
+    border-right: 110px solid transparent;
+    border-bottom: 30px solid #edc2c5;
+  }
+
+  .open-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 15px 20px;
+  }
+
+  .modal-content h2 {
+    font-size: 1.1rem;
+  }
+
+  .modal-content p {
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+
+  .close {
+    font-size: 22px;
+    top: 8px;
+    right: 10px;
+  }
+}

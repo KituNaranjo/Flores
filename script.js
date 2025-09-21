@@ -21,25 +21,22 @@ window.addEventListener('click', (e) => {
   }
 });
 
-const envelopeButton = document.getElementById('open-button');
-const audio = document.getElementById('miCancion');
+const openButton = document.getElementById('open-button');
+const closeButton = document.querySelector('.close');
+const miCancion = document.getElementById('miCancion');
 
-  envelopeButton.addEventListener('click', () => {
-    modal.style.display = 'flex';  // abre la carta
-    audio.play();                  // reproduce la canción
-  });
+openButton.addEventListener('click', () => {
+  modal.style.display = 'flex';
+  miCancion.currentTime = 0; // empieza desde el inicio
+  const playPromise = miCancion.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(error => {
+      console.log("No se pudo reproducir la canción:", error);
+    });
+  }
+});
 
-  closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';  // cierra la carta
-    audio.pause();                  // pausa la canción
-    audio.currentTime = 0;          // reinicia la canción
-  });
-
-  // Opcional: cerrar modal al dar click fuera del contenido
-  window.addEventListener('click', (e) => {
-    if(e.target === modal){
-      modal.style.display = 'none';
-      audio.pause();
-      audio.currentTime = 0;
-    }
-  });
+closeButton.addEventListener('click', () => {
+  modal.style.display = 'none';
+  miCancion.pause();
+});
