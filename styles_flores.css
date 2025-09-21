@@ -712,68 +712,68 @@ body {
   100% { transform: scale(1); opacity: 1; }
 }
 
+/* OPTIMIZACIÓN PARA MÓVILES */
 @media (max-width: 480px) {
   /* Escala general de flores */
   .flowers {
-    transform: scale(0.45);
+    transform: scale(0.5);
   }
 
-  /* Tamaño del sobre y carta */
+  /* Reducir tamaño del sobre y carta */
   .envelope {
-    width: 180px;
-    height: 100px;
+    width: 200px;
+    height: 120px;
   }
 
   .envelope-flap {
-    border-left: 90px solid transparent;
-    border-right: 90px solid transparent;
-    border-bottom: 20px solid #edc2c5;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 25px solid #edc2c5;
   }
 
   .open-button {
-    width: 30px;
-    height: 30px;
-    font-size: 0.9rem;
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
   }
 
   .modal-content {
-    width: 95%;
-    padding: 10px 15px;
+    width: 90%;
+    padding: 12px 18px;
   }
 
   .modal-content h2 {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
   .modal-content p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     line-height: 1.2;
   }
 
   .close {
-    font-size: 18px;
-    top: 5px;
-    right: 8px;
+    font-size: 20px;
+    top: 8px;
+    right: 10px;
   }
 
-  /* Animaciones ultra rápidas */
+  /* Animaciones más rápidas y menos pesadas */
   .flower--1,
   .flower--2,
   .flower--3 {
-    animation-duration: 0.8s !important;
+    animation-duration: 1.5s !important;
   }
 
   .flower__line {
-    animation-duration: 1s !important;
+    animation-duration: 2s !important;
   }
 
   .flower__leafs {
-    animation-duration: 0.5s !important;
+    animation-duration: 0.8s !important;
   }
 
-  /* Hojas fijas para no sobrecargar */
   .flower__line__leaf {
-    animation: none !important;
+    animation: none !important; /* hojas fijas */
   }
 
   /* Quitar sombras y filtros costosos */
@@ -788,10 +788,9 @@ body {
 
   .cloud {
     filter: none !important;
-    animation-duration: 2s !important; /* nubes más rápidas */
   }
 
-  /* Ocultar flores traseras para mejorar fluidez */
+  /* Ocultar algunas flores para mejorar rendimiento */
   .flower--4,
   .flower--5 {
     display: none;
