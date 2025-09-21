@@ -712,16 +712,22 @@ body {
   100% { transform: scale(1); opacity: 1; }
 }
 
+/* OPTIMIZACIÓN PARA MÓVILES */
 @media (max-width: 480px) {
+  /* Escala general de flores */
+  .flowers {
+    transform: scale(0.5);
+  }
+
+  /* Reducir tamaño del sobre y carta */
   .envelope {
-    width: 180px;   /* más pequeña */
-    height: 110px;  /* más compacta */
-    bottom: 15px;   /* un poco más cerca del borde */
+    width: 200px;
+    height: 120px;
   }
 
   .envelope-flap {
-    border-left: 90px solid transparent;
-    border-right: 90px solid transparent;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
     border-bottom: 25px solid #edc2c5;
   }
 
@@ -732,20 +738,61 @@ body {
   }
 
   .modal-content {
-    width: 85%;
-    max-width: 280px;
-    max-height: 65%; /* que no tape todo */
+    width: 90%;
     padding: 12px 18px;
-    font-size: 0.9rem;
   }
 
   .modal-content h2 {
     font-size: 1rem;
   }
 
+  .modal-content p {
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
+
   .close {
     font-size: 20px;
-    top: 6px;
+    top: 8px;
     right: 10px;
+  }
+
+  /* Animaciones más rápidas y menos pesadas */
+  .flower--1,
+  .flower--2,
+  .flower--3 {
+    animation-duration: 1.5s !important;
+  }
+
+  .flower__line {
+    animation-duration: 2s !important;
+  }
+
+  .flower__leafs {
+    animation-duration: 0.8s !important;
+  }
+
+  .flower__line__leaf {
+    animation: none !important; /* hojas fijas */
+  }
+
+  /* Quitar sombras y filtros costosos */
+  .flower__leaf,
+  .flower__white-circle {
+    box-shadow: none !important;
+  }
+
+  .flower__leafs::after {
+    filter: none !important;
+  }
+
+  .cloud {
+    filter: none !important;
+  }
+
+  /* Ocultar algunas flores para mejorar rendimiento */
+  .flower--4,
+  .flower--5 {
+    display: none;
   }
 }
